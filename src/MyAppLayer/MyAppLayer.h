@@ -18,6 +18,7 @@
 
 #include <omnetpp.h>
 #include "veins/modules/application/ieee80211p/BaseWaveApplLayer.h"
+#include "veins/modules/mobility/traci/TraCIColor.h"
 
 using namespace omnetpp;
 
@@ -36,6 +37,12 @@ class MyAppLayer : public BaseWaveApplLayer
 
         virtual void handleSelfMsg(cMessage* msg);
         virtual void handlePositionUpdate(cObject* obj);
+    protected:
+        bool isParked;
+        std::string myType;
+        double distance;
+        simtime_t timeStopped;
+        simtime_t stoppedAtTime;
 
 };
 

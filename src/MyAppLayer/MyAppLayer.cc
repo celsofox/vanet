@@ -13,7 +13,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#include "MyAppLayer.h"
+#include <MyAppLayer/MyAppLayer.h>
 
 Define_Module(MyAppLayer);
 
@@ -21,7 +21,17 @@ void MyAppLayer::initialize(int stage) {
     BaseWaveApplLayer::initialize(stage);
     if (stage == 0) {
         //Initializing members and pointers of your application goes here
-        EV << "Initializing " << par("appName").stringValue() << std::endl;
+        //Getting the type of car
+        this->myType = par("vehType").stringValue();
+        std::cout << myId <<" my type is " << myType << endl;
+
+        isParked = false;
+
+        Veins::TraCIColor color(255,0,0,0);
+
+        if(myType == "ambulance"){
+            traciVehicle->setColor(color);
+        }
     }
     else if (stage == 1) {
         //Initializing members that require initialized other modules goes here
@@ -38,7 +48,26 @@ void MyAppLayer::finish() {
 void MyAppLayer::onBSM(BasicSafetyMessage* bsm) {
     //Your application has received a beacon message from another car or RSU
     //code for handling the message goes here
+    //std::cout << "My ID: " << myId << endl;
+   // std::cout << "I just received one beacon from Vehicle: " << bsm->getSenderAddress() << endl;
+    //std::cout << "This vehicle is of type: " << bsm->getVehType() << endl;
+   // std::cout << bsm->getSenderSpeed() << endl;
 
+    std::string bsmVehType;
+    bsmVehType = bsm->getVehType();
+
+    if(bsmVehType == "ambulance" and isParked == false){
+        std::cout << "received." << endl;
+        //Compute distance
+        this->distance = mobility->getCurrentPosition().distance(bsm->getSenderPos());
+        //Compute time parked to the ambulance overpass
+        timeStopped = (this->distance / bsm->getSenderSpeed().x);
+        //Compute more 10% of time
+        timeStopped = timeStopped + (timeStopped*0.1);
+        stoppedAtTime = simTime();
+        traciVehicle->setSpeed(0.0);
+        isParked = true;
+    }
 }
 
 void MyAppLayer::onWSM(WaveShortMessage* wsm) {
@@ -56,9 +85,22 @@ void MyAppLayer::onWSA(WaveServiceAdvertisment* wsa) {
 void MyAppLayer::handleSelfMsg(cMessage* msg) {
     switch (msg->getKind()) {
         case SEND_BEACON_EVT: {
+
+            if(isParked == true){
+                if((simTime() - stoppedAtTime) > timeStopped){
+                    traciVehicle->setSpeed(12.0);
+                }
+            }
+
+
             BasicSafetyMessage* bsm = new BasicSafetyMessage();
+            //Put Veh Type on beacon before send it.
+            bsm->setVehType(myType.c_str());
+            //Put standard beacon parameters
             populateWSM(bsm);
+            //send it to mac layer
             sendDown(bsm);
+            //schedule time to next periodic beacon...
             scheduleAt(simTime() + beaconInterval, sendBeaconEvt);
             break;
         }

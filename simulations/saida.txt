@@ -1,0 +1,97 @@
+OMNeT++ Discrete Event Simulation  (C) 1992-2016 Andras Varga, OpenSim Ltd.
+Version: 5.0, build: 160414-aa4629c, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+Setting up Cmdenv...
+Loading NED files from ../src:  3
+Loading NED files from .:  1
+Loading NED files from ../../veins/examples/veins:  1
+Loading NED files from ../../veins/src/veins:  33
+
+Preparing for running configuration General, run #0...
+Scenario: $repetition=0
+Assigned runID=General-0-20170805-17:59:11-11385
+Setting up network `com.me.vanet.MyScenario'...
+Initializing...
+
+Running simulation...
+** Event #0   t=0   Elapsed: 0.000s (0m 00s)  0% completed
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 3   present: 3   in FES: 3
+7 my type is car
+13 my type is car
+19 my type is car
+25 my type is car
+31 my type is car
+** Event #256   t=13.421162046105   Elapsed: 8.479s (0m 08s)  6% completed
+     Speed:     ev/sec=30.3102   simsec/sec=1.58287   ev/simsec=19.1489
+     Messages:  created: 213   present: 39   in FES: 10
+37 my type is car
+43 my type is car
+49 my type is car
+55 my type is car
+61 my type is car
+** Event #1024   t=18.958373781173   Elapsed: 9.538s (0m 09s)  9% completed
+     Speed:     ev/sec=725.212   simsec/sec=5.22872   ev/simsec=138.698
+     Messages:  created: 848   present: 75   in FES: 21
+67 my type is car
+73 my type is car
+** Event #2304   t=23.573849535637   Elapsed: 10.546s (0m 10s)  11% completed
+     Speed:     ev/sec=1271.1   simsec/sec=4.58339   ev/simsec=277.328
+     Messages:  created: 1876   present: 89   in FES: 25
+** Event #4096   t=29.675885327271   Elapsed: 11.745s (0m 11s)  14% completed
+     Speed:     ev/sec=1494.58   simsec/sec=5.08927   ev/simsec=293.672
+     Messages:  created: 3305   present: 82   in FES: 23
+79 my type is car
+85 my type is car
+** Event #5632   t=35.255992463892   Elapsed: 12.930s (0m 12s)  17% completed
+     Speed:     ev/sec=1296.2   simsec/sec=4.70895   ev/simsec=275.264
+     Messages:  created: 4535   present: 79   in FES: 20
+91 my type is car
+97 my type is car
+** Event #6912   t=41.352346373694   Elapsed: 14.115s (0m 14s)  20% completed
+     Speed:     ev/sec=1081.08   simsec/sec=5.14895   ev/simsec=209.962
+     Messages:  created: 5558   present: 61   in FES: 12
+103 my type is car
+** Event #7680   t=49.148157234211   Elapsed: 15.682s (0m 15s)  24% completed
+     Speed:     ev/sec=490.421   simsec/sec=4.97817   ev/simsec=98.5144
+     Messages:  created: 6155   present: 40   in FES: 11
+109 my type is car
+115 my type is ambulance
+received.
+received.
+received.
+received.
+received.
+received.
+** Event #8192   t=55.148163189823   Elapsed: 16.891s (0m 16s)  27% completed
+     Speed:     ev/sec=423.49   simsec/sec=4.96278   ev/simsec=85.3332
+     Messages:  created: 6558   present: 50   in FES: 11
+121 my type is car
+received.
+** Event #8960   t=61.863434440546   Elapsed: 18.099s (0m 18s)  30% completed
+     Speed:     ev/sec=636.288   simsec/sec=5.56361   ev/simsec=114.366
+     Messages:  created: 7163   present: 62   in FES: 18
+** Event #9728   t=67.148058587114   Elapsed: 19.284s (0m 19s)  33% completed
+     Speed:     ev/sec=648.649   simsec/sec=4.46336   ev/simsec=145.327
+     Messages:  created: 7761   present: 61   in FES: 17
+** Event #10496   t=72.489646511892   Elapsed: 20.300s (0m 20s)  36% completed
+     Speed:     ev/sec=755.906   simsec/sec=5.25747   ev/simsec=143.777
+     Messages:  created: 8360   present: 61   in FES: 17
+** Event #11264   t=78.093636764081   Elapsed: 21.485s (0m 21s)  39% completed
+     Speed:     ev/sec=648.649   simsec/sec=4.7331   ev/simsec=137.045
+     Messages:  created: 8952   present: 54   in FES: 10
+** Event #11776   t=83.352345102629   Elapsed: 22.489s (0m 22s)  41% completed
+     Speed:     ev/sec=510.469   simsec/sec=5.24298   ev/simsec=97.3623
+     Messages:  created: 9347   present: 36   in FES: 7
+** Event #11913   t=200   Elapsed: 24.086s (0m 24s)  100% completed
+     Speed:     ev/sec=85.213   simsec/sec=4.79176   ev/simsec=17.7832
+     Messages:  created: 9441   present: 3   in FES: 0
+
+<!> Simulation time limit reached -- simulation stopped at event #11913, t=200.
+
+
+Calling finish() at end of Run #0...
+[INFO]	Writing TraCI message of 2 bytes
+[INFO]	Reading TraCI message of 7 bytes
+
+End.

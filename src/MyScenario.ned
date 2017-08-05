@@ -13,17 +13,12 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package com.me.vanet.AppLayer;
+package com.me.vanet;
 
-import org.car2x.veins.modules.application.ieee80211p.BaseWaveApplLayer;
+import org.car2x.veins.nodes.Scenario;
+import org.car2x.veins.nodes.RSU;
 
-//
-// TODO auto-generated module
-//
-
-simple MyAppLayer extends BaseWaveApplLayer
+network MyScenario extends Scenario
 {
-    @class(MyAppLayer);//This is needed to reference where the class behaviour will be builded
-    @display("i=block/square");//your preferred icon
-    //You can extend your module parameters here if needed...
+   
 }
